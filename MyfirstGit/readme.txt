@@ -1,1 +1,1 @@
-Git 真是强大啊！
+Git is strong！
