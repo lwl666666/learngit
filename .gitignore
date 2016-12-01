@@ -1,2 +1,7 @@
 # directory
-ignore file
+
+# extension*.map
+*.class
+
+# file
+toIgnore.txt
