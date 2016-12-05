@@ -1,0 +1,13 @@
+JavaScripts
+
+getELementById
+getElementsByTagName
+getElementByClassName
+getAttribute
+setAttribute
+
+childNodes
+nodeType
+nodeValue
+firstChild
+lastChild
