@@ -11,3 +11,110 @@ nodeType
 nodeValue
 firstChild
 lastChild
+
+document.write
+innerHTML
+createElement
+createTextNode
+appendChild
+insertBefore
+nextSibling
+
+jQuery
+$()
+ready
+
+效果
+隐藏/显示
+$(selector).hide(speed,callback);
+$(selector).show(speed,callback);
+$(selector).toggle(speed,callback);
+淡入/淡出
+$(selector).fadeIn(speed,callback);
+$(selector).fadeOut(speed,callback);
+$(selector).fadeToggle(speed,callback);
+$(selector).fadeTo(speed,opacity,callback);
+滑动
+$(selector).slideDown(speed,callback);
+$(selector).slideUp(speed,callback);
+$(selector).slideToggle(speed,callback);
+动画
+$(selector).animate({params},speed,callback);
+停止动画
+$(selector).stop(stopAll,goToEnd);
+
+HTML文本操作
+text()
+html()
+val()
+attr()
+text()、html() 以及 val()，同样拥有回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。
+•append() - 在被选元素的结尾插入内容
+•prepend() - 在被选元素的开头插入内容
+•after() - 在被选元素之后插入内容
+•before() - 在被选元素之前插入内容
+var txt1="<p>Text.</p>";               // 以 HTML 创建新元素
+var txt2=$("<p></p>").text("Text.");   // 以 jQuery 创建新元素
+var txt3=document.createElement("p");  // 以 DOM 创建新元素
+•remove() - 删除被选元素（及其子元素）
+•empty() - 从被选元素中删除子元素
+remove() 方法也可接受一个参数，允许您对被删元素进行过滤。
+
+jQuery 操作 CSS
+jQuery 拥有若干进行 CSS 操作的方法。我们将学习下面这些：
+•addClass() - 向被选元素添加一个或多个类
+•removeClass() - 从被选元素删除一个或多个类
+•toggleClass() - 对被选元素进行添加/删除类的切换操作
+•css() - 设置或返回样式属性
+jQuery 提供多个处理尺寸的重要方法：
+•width()
+•height()
+•innerWidth()
+•innerHeight()
+•outerWidth()
+•outerHeight()
+
+jQuery 遍历
+向上遍历 DOM 树
+这些 jQuery 方法很有用，它们用于向上遍历 DOM 树：
+•parent()
+•parents()
+•parentsUntil()
+
+向下遍历 DOM 树
+下面是两个用于向下遍历 DOM 树的 jQuery 方法：
+•children()
+•find()
+
+在 DOM 树中水平遍历
+有许多有用的方法让我们在 DOM 树进行水平遍历：
+•siblings()
+•next()
+•nextAll()
+•nextUntil()
+•prev()
+•prevAll()
+•prevUntil()
+
+缩写搜索元素的范围
+三个最基本的过滤方法是：first(), last() 和 eq()，它们允许您基于其在一组元素中的位置来选择一个特定的元素。
+其他过滤方法，比如 filter() 和 not() 允许您选取匹配或不匹配某项指定标准的元素。
+
+jQuery - AJAX 
+$(selector).load(URL,data,callback);
+load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+必需的 URL 参数规定您希望加载的 URL。
+可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。
+可选的 callback 参数是 load() 方法完成后所执行的函数名称。
+可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+•responseTxt - 包含调用成功时的结果内容
+•statusTXT - 包含调用的状态
+•xhr - 包含 XMLHttpRequest 对象
+
+$.get(URL,callback);
+$.post(URL,data,callback);
+必需的 URL 参数规定您希望请求的 URL。
+可选的 data 参数规定连同请求发送的数据。
+可选的 callback 参数是请求成功后所执行的函数名。
+
+
