@@ -1,5 +1,109 @@
 JavaScripts
 
+严格模式 "use strict"
+typeof操作符
+instanceof
+	result=person instanceof Object
+
+数值转换 
+	Number()
+	parseInt()
+	parseFloat()
+位运算符
+	按位非（NOT） ~
+	按位与（AND） &
+	按位或（OR） |
+	按位异或（XOR） ^
+	左移 <<
+	有符号右移 >>
+	无符号右移 >>>
+条件操作符
+	value=boolean_expression ? true_value : false_value
+for-in 语句
+	for(property in expression){statement}
+for-of
+label
+	label:statement
+break
+continue
+方法参数
+	arguments
+没有重载
+声明对象
+	使用var声明的变量会自动添加到最接近的环境中。如果初始化没有使用var声明，该变量会自动被添加到全局环境中
+Object
+Array
+	Array.isArray()
+	toString()
+	toLocaleString()
+	valueOf()
+	join()
+	栈方法
+	push()
+	pop()
+	队列方法
+	push()
+	shift()
+	unshift()
+	排序
+	reverse()
+	sort()
+	操作方法
+	concat()
+	slice()
+		slice(start) //[start,length-1]
+		slice(start,end) //[start,end)
+	splice
+		删除:splice(startIndex,删除的项数)
+		插入，替换:splice(startIndex,删除的项数,要插入的项)
+	位置方法
+		index()
+		lastIndexOf()
+	迭代方法
+		每个方法接受连个参数：要在每一项上运行的函数和（可选的）运行该函数的作用域。传入这些方法中的函数会接受三个参数：数据项的值，该项在数组中位置和数组对象本身
+		every() 	每一项返回ture,则返回true 
+		filter()    返回true项组成的数组
+		forEach()	每一项运行给定的函数，没有返回值
+		map()		返回每次函数调用的结果组成的数组
+		some()	
+	缩小方法
+		reduce()
+		reduceRight()
+Date类型
+	Date.parse() 接受一个表示日期的字符串，返回相应日期的毫秒数。
+	Date.UTC(year,month,date,h,m,s)
+RegExp类型
+function
+	arguments.callee 指向拥有这个arguments对象的函数
+	this
+	caller
+Number
+	toFixed() 10.01
+	toExponential() 	1.0e+1
+	toPrecision()
+String
+	charAt(),charCodeAt()
+	concat()
+	slice(),substring(),substr()
+	indexOf(),lastIndexOf()
+	trim()
+	toLowerCase(),toLocaleLowerCase(),toUpperCase(),toLocaleUpperCase()
+	match(),search(),replace()
+Global
+	eval()
+Math
+	min()和max()
+	ceil() 向上舍入
+	floor() 向下舍入
+	round() 四舍五入
+	random()	
+	
+	
+	
+		
+		
+
+
 getELementById
 getElementsByTagName
 getElementByClassName
