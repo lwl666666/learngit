@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX 练习</title>
+		<script>
+			function loadText(){
+				var xmlhttp;
+				if(window.XMLHttpRequest){
+					xmlhttp=new XMLHttpRequest();
+				}else{
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function(){
+					if(xmlhttp.readyState==4 && xmlhttp.status==200){
+						document.getElementById("text1").innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET","text1.txt",true);
+				xmlhttp.send();
+			}
+			function loadJSONText(){
+				var xmlhttp;
+				if(window.XMLHttpRequest){
+					xmlhttp=new XMLHttpRequest();
+				}else{
+					xmlhttp=new ActiveXObject("Microsoft XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function(){
+					if(xmlhttp.readyState==4 && xmlhttp.status==200){
+					alert(1);
+						var people=JSON.parse(xmlhttp.responseText);
+						var text="";
+						for(person of people.people){
+							text+="name: "+person.name+"age: "+person.age+"</br>"
+						}
+						document.getElementById("text2").innerHTML=text;
+					}
+				}
+				xmlhttp.open("GET","text2.json",true);
+				xmlhttp.send();
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="main_body">
+			<h1>AJAX</h1>
+			<p id="text1">点击按钮修改文本内容</p>
+			<button onclick="loadText()">修改内容</button>
+		</div>
+		<div class="main_body">
+			<h1>JSON</h1>
+			<p id="text2">json</p>
+			<button onclick="loadJSONText()">修改内容</button>
+		</div>
+		<style>
+			.main_body{
+				width:80%;
+				margin:0 auto;
+			}
+			h1{
+				text-align:center;
+			}
+		</style>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>canva绘制路径-圆弧 练习</title>
+	</head>
+	<body onload="draw()">
+		<h1>canvas圆弧 练习</h1>
+		<canvas id="canvas" width="150px" height="200px">
+		</canvas>
+		<script>
+			function draw(){
+			var canvas=document.getElementById("canvas");
+			if(canvas.getContext){
+				var ctx=canvas.getContext("2d");
+				var x=0;
+				var y=0;
+				var RADIUS=20;
+				var startAngle=0;
+				var endAngle=0;
+				var isNotClockWise=true;
+				
+				for(var i=0;i<4;i++){
+					for(var j=0;j<3;j++){
+					ctx.beginPath();
+					x=25+50*j;
+					y=25+50*i;
+					endAngle=Math.PI+(Math.PI*j)/2;
+					isNotClockWise=i%2==0?false:true;
+					ctx.arc(x,y,RADIUS,startAngle,endAngle,isNotClockWise);
+					if(i<=1){
+						ctx.stroke();
+					}
+					else{
+						ctx.fill();
+					}
+					}
+				}
+			}else{
+				//canvas cannot support;
+			}
+		}
+		</script>
+		<style>
+			canvas {
+			border:1px solid black;
+			}
+		</style>
+	</body>
+</html>

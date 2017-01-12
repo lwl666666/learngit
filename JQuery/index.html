@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQruey</title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="page">
+			<h1>JQuery</h1>
+			<p id="p_hide">Are you OK?</p>
+			<button id="button_OK">OK</button>
+			<div id="anim_box">
+				<p>Hello,World!</p>
+			</div>
+			<div id="ajax_div">
+			<button id="ajax_load">AJAX 加载</button>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(document).ready(
+		function(){
+			$("#button_OK").click(function(){
+				$("#p_hide").hide();
+				alert($("#p_hide").html());
+			});
+			$("#anim_box").animate({
+				top:"200px",
+				opacity:"1"
+			},"slow");
+			$("#ajax_load").click(function(){
+				$("#ajax_div").load("ajaxText.txt");
+			});
+		});
+	</script>
+	<style>
+		.page{
+			width:90%;
+			margin:0 auto;
+		}
+		h1{
+			text-align:center;
+		}
+		#anim_box{
+			position:relative;
+			opacity:0;
+			top:0;
+		}
+	</style>
+</html>

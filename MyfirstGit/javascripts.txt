@@ -4,7 +4,7 @@ JavaScripts
 typeof操作符
 instanceof
 	result=person instanceof Object
-
+javascript:void(0), 仅仅表示一个死链接。
 数值转换 
 	Number()
 	parseInt()
@@ -28,9 +28,12 @@ break
 continue
 方法参数
 	arguments
+	rest
 没有重载
 声明对象
 	使用var声明的变量会自动添加到最接近的环境中。如果初始化没有使用var声明，该变量会自动被添加到全局环境中
+	let 申明块级作用域的变量
+	const 申明常量
 Object
 Array
 	Array.isArray()
@@ -97,12 +100,65 @@ Math
 	floor() 向下舍入
 	round() 四舍五入
 	random()	
-	
-	
-	
-		
-		
 
+正则表达式
+	语法：/正则表达式主体/修饰符(可选)
+		var patt=new RegExp(pattern,modifiers);
+		或者更简单的方式:
+		var patt=/pattern/modifiers; 
+	正则表达式修饰符 i 执行对大小写不敏感的匹配。 
+				  g 执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。 
+				  m 执行多行匹配。 
+	正则表达式模式	 方括号用于查找某个范围内的字符：
+				 [abc] 查找方括号之间的任何字符。 
+				 [^abc] 查找任何不在方括号之间的字符。 
+				 [0-9] 查找任何从 0 至 9 的数字。 
+				 (x|y) 查找任何以 | 分隔的选项。  
+				 元字符是拥有特殊含义的字符：
+				 . 查找单个字符，除了换行和行结束符。 
+				 \w 查找单词字符。 
+				 \W 查找非单词字符。 
+				 \d 查找数字。 
+				 \D 查找非数字字符。 
+				 \s 查找空白字符。 
+				 \S 查找非空白字符。 
+				 \b 匹配单词边界。 
+				 \B 匹配非单词边界。 
+				 \0 查找 NUL 字符。 
+				 \n 查找换行符。 
+				 \f 查找换页符。 
+				 \r 查找回车符。 
+				 \t 查找制表符。 
+				 \v 查找垂直制表符。 
+				 \xxx 查找以八进制数 xxx 规定的字符。 
+				 \xdd 查找以十六进制数 dd 规定的字符。 
+				 \uxxxx 查找以十六进制数 xxxx 规定的 Unicode 字符。 
+
+				 量词:
+				 n+	   匹配任何包含至少一个 n 的字符串。 
+				 n*    匹配任何包含零个或多个 n 的字符串。  
+				 n?    匹配任何包含零个或一个 n 的字符串。 
+				 n{X} 匹配包含 X 个 n 的序列的字符串。 
+				 n{X,Y} 匹配包含 X 或 Y 个 n 的序列的字符串。 
+				 n{X,} 匹配包含至少 X 个 n 的序列的字符串。 
+				 n$ 匹配任何结尾为 n 的字符串。 
+				 ^n 匹配任何开头为 n 的字符串。 
+				 ?=n 匹配任何其后紧接指定字符串 n 的字符串。 
+				 ?!n 匹配任何其后没有紧接指定字符串 n 的字符串。 
+	RegExp 对象方法
+				compile 编译正则表达式。 
+				exec 检索字符串中指定的值。返回找到的值，并确定其位置。 
+				test 检索字符串中指定的值。返回 true 或 false。 
+	支持正则表达式的 String 对象的方法
+				search 检索与正则表达式相匹配的值。 
+				match 找到一个或多个正则表达式的匹配。 
+				replace 替换与正则表达式匹配的子串。 
+				split 把字符串分割为字符串数组。 
+DOM
+•innerHTML - 节点（元素）的文本值
+•parentNode - 节点（元素）的父节点
+•childNodes - 节点（元素）的子节点
+•attributes - 节点（元素）的属性节点
 
 getELementById
 getElementsByTagName
@@ -119,14 +175,109 @@ lastChild
 document.write
 innerHTML
 createElement
+	var para=document.createElement("p");
 createTextNode
+	var node=document.createTextNode("这是一个新段落。");
 appendChild
+	para.appendChild(node);
+removeChild
+	parent.removeChild(child);
 insertBefore
 nextSibling
 
+document.getElementById(id).attribute=新属性值 
+addEventListener() 方法
+element.addEventListener(event, function, useCapture);
+第一个参数是事件的类型 (如 "click" 或 "mousedown"). 
+第二个参数是事件触发后调用的函数。 
+第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的 默认值为 false, 即冒泡传递，当值为 true 时, 事件使用捕获传递。
+removeEventListener() 方法
+
+
+AJAX
+	AJAX是基于现有的Internet标准，并且联合使用它们：
+	XMLHttpRequest 对象 (异步的与服务器交换数据)
+	JavaScript/DOM (信息显示/交互)
+	CSS (给数据定义样式)
+	XML (作为转换数据的格式)
+	AJAX应用程序与浏览器和平台无关的！
+	
+	为了应对所有的现代浏览器，包括 IE5 和 IE6，请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建 XMLHttpRequest 对象。如果不支持，则创建 ActiveXObject ：
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	{
+		//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		// IE6, IE5 浏览器执行代码
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：
+		xmlhttp.open("GET","ajax_info.txt",true);			 
+					规定请求的类型、URL 以及是否异步处理请求。
+					method：请求的类型；GET 或 POST
+					url：文件在服务器上的位置
+					async：true（异步）或 false（同步）
+		xmlhttp.send();
+					将请求发送到服务器。
+					string：仅用于 POST 请求
+	
+	GET 还是 POST？
+		与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
+		然而，在以下情况中，请使用 POST 请求：
+		无法使用缓存文件（更新服务器上的文件或数据库）
+		向服务器发送大量数据（POST 没有数据量限制）
+		发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+
+	如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：
+		xmlhttp.open("POST","/try/ajax/demo_post2.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("fname=Henry&lname=Ford");
+	
+JSON
+		例
+		{
+		"sites": [
+		{ "name":"菜鸟教程" , "url":"www.runoob.com" }, 
+		{ "name":"google" , "url":"www.google.com" }, 
+		{ "name":"微博" , "url":"www.weibo.com" }
+		]
+		}
+		与 XML 相同之处
+		JSON 是纯文本
+		JSON 具有"自我描述性"（人类可读）
+		JSON 具有层级结构（值中存在值）
+		JSON 可通过 JavaScript 进行解析
+		JSON 数据可使用 AJAX 进行传输
+
+
+		与 XML 不同之处
+		没有结束标签
+		更短
+		读写的速度更快
+		能够使用内建的 JavaScript eval() 方法进行解析
+		使用数组
+		不使用保留字
+		
+		JSON 字符串转换为 JavaScript 对象
+		var obj = eval ("(" + txt + ")"); 
+		var obj = JSON.parse(text);
+
 jQuery
-$()
-ready
+下载 http://jquery.com/download/
+	http://www.runoob.com/jquery/jquery-install.html
+基础语法： $(selector).action()
+文档就绪事件
+$(document).ready(function(){
+   // 开始写 jQuery 代码...
+});
+提示：简洁写法（与以上写法效果相同）:
+$(function(){
+   // 开始写 jQuery 代码...
+});
 
 效果
 隐藏/显示
@@ -144,14 +295,30 @@ $(selector).slideUp(speed,callback);
 $(selector).slideToggle(speed,callback);
 动画
 $(selector).animate({params},speed,callback);
+	可以用 animate() 方法来操作所有 CSS 属性吗？
+	是的，几乎可以！不过，需要记住一件重要的事情：当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名，比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。
+	jQuery animate() - 使用相对值
+		$("button").click(function(){
+		$("div").animate({
+		left:'250px',
+		height:'+=150px',
+		width:'+=150px'
+		});
+		});
+
+同时，色彩动画并不包含在核心 jQuery 库中。
+
 停止动画
 $(selector).stop(stopAll,goToEnd);
+可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。
 
 HTML文本操作
-text()
-html()
-val()
-attr()
+text() - 设置或返回所选元素的文本内容
+html() - 设置或返回所选元素的内容（包括 HTML 标记）
+val() - 设置或返回表单字段的值
+
+attr() 方法用于获取属性值
 text()、html() 以及 val()，同样拥有回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。
 •append() - 在被选元素的结尾插入内容
 •prepend() - 在被选元素的开头插入内容
@@ -169,40 +336,46 @@ jQuery 拥有若干进行 CSS 操作的方法。我们将学习下面这些：
 •addClass() - 向被选元素添加一个或多个类
 •removeClass() - 从被选元素删除一个或多个类
 •toggleClass() - 对被选元素进行添加/删除类的切换操作
-•css() - 设置或返回样式属性
+•css() - 设置或返回样式属性 css("propertyname");css("propertyname","value");
 jQuery 提供多个处理尺寸的重要方法：
-•width()
-•height()
-•innerWidth()
-•innerHeight()
-•outerWidth()
-•outerHeight()
+width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。
+innerWidth() 方法返回元素的宽度（包括内边距）。
+innerHeight() 方法返回元素的高度（包括内边距）。
+outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+outerHeight() 方法返回元素的高度（包括内边距和边框）。
+
 
 jQuery 遍历
 向上遍历 DOM 树
 这些 jQuery 方法很有用，它们用于向上遍历 DOM 树：
-•parent()
-•parents()
-•parentsUntil()
+•parent()	方法返回被选元素的直接父元素。
+•parents()	方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+•parentsUntil()	方法返回介于两个给定元素之间的所有祖先元素。
 
 向下遍历 DOM 树
 下面是两个用于向下遍历 DOM 树的 jQuery 方法：
-•children()
-•find()
+•children()	方法返回被选元素的所有直接子元素。可以使用可选参数来过滤对子元素的搜索。
+•find()	方法返回被选元素的后代元素，一路向下直到最后一个后代。
 
 在 DOM 树中水平遍历
 有许多有用的方法让我们在 DOM 树进行水平遍历：
-•siblings()
-•next()
-•nextAll()
-•nextUntil()
-•prev()
+•siblings() 方法返回被选元素的所有同胞元素。
+•next()	方法返回被选元素的下一个同胞元素。
+•nextAll()	方法返回被选元素的所有跟随的同胞元素
+•nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+•prev() 返回的是前面的同胞元素
 •prevAll()
 •prevUntil()
 
 缩写搜索元素的范围
 三个最基本的过滤方法是：first(), last() 和 eq()，它们允许您基于其在一组元素中的位置来选择一个特定的元素。
 其他过滤方法，比如 filter() 和 not() 允许您选取匹配或不匹配某项指定标准的元素。
+first() 方法返回被选元素的首个元素。
+last() 方法返回被选元素的最后一个元素。
+eq() 方法返回被选元素中带有指定索引号的元素
+filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。
+not() 方法返回不匹配标准的所有元素。
 
 jQuery - AJAX 
 $(selector).load(URL,data,callback);
@@ -214,11 +387,55 @@ load() 方法从服务器加载数据，并把返回的数据放入被选元素�
 •responseTxt - 包含调用成功时的结果内容
 •statusTXT - 包含调用的状态
 •xhr - 包含 XMLHttpRequest 对象
+实例
+	$("button").click(function(){
+	  $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+		if(statusTxt=="success")
+		  alert("外部内容加载成功!");
+		if(statusTxt=="error")
+		  alert("Error: "+xhr.status+": "+xhr.statusText);
+	  });
+	});
+
 
 $.get(URL,callback);
 $.post(URL,data,callback);
 必需的 URL 参数规定您希望请求的 URL。
 可选的 data 参数规定连同请求发送的数据。
 可选的 callback 参数是请求成功后所执行的函数名。
+实例
+	GET
+	$("button").click(function(){
+	  $.get("demo_test.php",function(data,status){
+		alert("数据: " + data + "\n状态: " + status);
+	  });
+	});
+	POST
+	$("button").click(function(){
+		$.post("/try/ajax/demo_test_post.php",
+		{
+			name:"菜鸟教程",
+			url:"http://www.runoob.com"
+		},
+			function(data,status){
+			alert("数据: \n" + data + "\n状态: " + status);
+		});
+	});
+
+jQuery noConflict() 方法
+noConflict() 方法会释放会 $ 标识符的控制，这样其他脚本就可以使用它了。当然，您仍然可以通过全名替代简写的方式来使用 jQuery,也可以创建自己的简写。noConflict() 可返回对 jQuery 的引用，您可以把它存入变量，以供稍后使用。如果你的 jQuery 代码块使用 $ 简写，并且您不愿意改变这个快捷方式，那么您可以把 $ 符号作为变量传递给 ready 方法。这样就可以在函数内使用 $ 符号了 - 而在函数外，依旧不得不使用 "jQuery"：
+
+jQuery 使用 JSONP
+$.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function(data) {   
+    var html = '<ul>';
+    for(var i = 0; i < data.length; i++)
+    {
+        html += '<li>' + data[i] + '</li>';
+    }
+    html += '</ul>';
+    
+    $('#divCustomers').html(html); 
+});
+
 
 

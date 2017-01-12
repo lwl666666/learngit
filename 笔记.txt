@@ -1,0 +1,3 @@
+实现图片模糊。内容不模糊的效果
+	图片的css filter：blur(5px);
+	内容的position 设为absolute;
