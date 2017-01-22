@@ -1,0 +1,45 @@
+<html>  
+ <head>  
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+ <title>IE BUG - table position & select div的显示隐藏_www.jbxue.com</title>  
+  
+<script>  
+  function showDiv(){   
+var tbox=document.getElementById("tbox");   
+tboxtbox.style.display = tbox.style.display=="none"?"":"none";   
+ }   
+</script>  
+  
+<style>  
+  
+.badtable {   
+width: 200px;
+height:100px;   
+  
+background-color: #f0f0f0;   
+  
+position: relative;   
+}   
+  
+</style>  
+ </head>  
+  
+ <body>  
+  
+  <input onclick="showDiv()" type="button" value="show/hide" /> <br/>  
+<div id="tbox" >  
+<select>  
+<option>我是一个select</option>  
+</select>
+  <table class="badtable" border="1" >  
+   <tr>  
+ <td >表格内容1</td>  
+</tr>  
+  </table>  
+ </div>
+其他内容1<br/>  
+其他内容2<br/>  
+其他内容3<br/>  
+其他内容4<br/>  
+ </body>  
+</html> 

@@ -1,0 +1,172 @@
+﻿jQuery
+实例参考：http://www.runoob.com/jquery/jquery-examples.html
+下载 http://jquery.com/download/
+	http://www.runoob.com/jquery/jquery-install.html
+基础语法： $(selector).action()
+文档就绪事件
+$(document).ready(function(){
+   // 开始写 jQuery 代码...
+});
+提示：简洁写法（与以上写法效果相同）:
+$(function(){
+   // 开始写 jQuery 代码...
+});
+
+效果
+隐藏/显示
+$(selector).hide(speed,callback);
+$(selector).show(speed,callback);
+$(selector).toggle(speed,callback);
+淡入/淡出
+$(selector).fadeIn(speed,callback);
+$(selector).fadeOut(speed,callback);
+$(selector).fadeToggle(speed,callback);
+$(selector).fadeTo(speed,opacity,callback);
+滑动
+$(selector).slideDown(speed,callback);
+$(selector).slideUp(speed,callback);
+$(selector).slideToggle(speed,callback);
+动画
+$(selector).animate({params},speed,callback);
+	可以用 animate() 方法来操作所有 CSS 属性吗？
+	是的，几乎可以！不过，需要记住一件重要的事情：当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名，比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。
+	jQuery animate() - 使用相对值
+		$("button").click(function(){
+		$("div").animate({
+		left:'250px',
+		height:'+=150px',
+		width:'+=150px'
+		});
+		});
+
+同时，色彩动画并不包含在核心 jQuery 库中。
+
+停止动画
+$(selector).stop(stopAll,goToEnd);
+可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。
+
+HTML文本操作
+text() - 设置或返回所选元素的文本内容
+html() - 设置或返回所选元素的内容（包括 HTML 标记）
+val() - 设置或返回表单字段的值
+
+attr() 方法用于获取属性值
+text()、html() 以及 val()，同样拥有回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。
+•append() - 在被选元素的结尾插入内容
+•prepend() - 在被选元素的开头插入内容
+•after() - 在被选元素之后插入内容
+•before() - 在被选元素之前插入内容
+var txt1="<p>Text.</p>";               // 以 HTML 创建新元素
+var txt2=$("<p></p>").text("Text.");   // 以 jQuery 创建新元素
+var txt3=document.createElement("p");  // 以 DOM 创建新元素
+•remove() - 删除被选元素（及其子元素）
+•empty() - 从被选元素中删除子元素
+remove() 方法也可接受一个参数，允许您对被删元素进行过滤。
+
+jQuery 操作 CSS
+jQuery 拥有若干进行 CSS 操作的方法。我们将学习下面这些：
+•addClass() - 向被选元素添加一个或多个类
+•removeClass() - 从被选元素删除一个或多个类
+•toggleClass() - 对被选元素进行添加/删除类的切换操作
+•css() - 设置或返回样式属性 css("propertyname");css("propertyname","value");
+jQuery 提供多个处理尺寸的重要方法：
+width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。
+innerWidth() 方法返回元素的宽度（包括内边距）。
+innerHeight() 方法返回元素的高度（包括内边距）。
+outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+outerHeight() 方法返回元素的高度（包括内边距和边框）。
+
+
+jQuery 遍历
+向上遍历 DOM 树
+这些 jQuery 方法很有用，它们用于向上遍历 DOM 树：
+•parent()	方法返回被选元素的直接父元素。
+•parents()	方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+•parentsUntil()	方法返回介于两个给定元素之间的所有祖先元素。
+
+向下遍历 DOM 树
+下面是两个用于向下遍历 DOM 树的 jQuery 方法：
+•children()	方法返回被选元素的所有直接子元素。可以使用可选参数来过滤对子元素的搜索。
+•find()	方法返回被选元素的后代元素，一路向下直到最后一个后代。
+
+在 DOM 树中水平遍历
+有许多有用的方法让我们在 DOM 树进行水平遍历：
+•siblings() 方法返回被选元素的所有同胞元素。
+•next()	方法返回被选元素的下一个同胞元素。
+•nextAll()	方法返回被选元素的所有跟随的同胞元素
+•nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+•prev() 返回的是前面的同胞元素
+•prevAll()
+•prevUntil()
+
+缩写搜索元素的范围
+三个最基本的过滤方法是：first(), last() 和 eq()，它们允许您基于其在一组元素中的位置来选择一个特定的元素。
+其他过滤方法，比如 filter() 和 not() 允许您选取匹配或不匹配某项指定标准的元素。
+first() 方法返回被选元素的首个元素。
+last() 方法返回被选元素的最后一个元素。
+eq() 方法返回被选元素中带有指定索引号的元素
+filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。
+not() 方法返回不匹配标准的所有元素。
+
+jQuery - AJAX 
+$(selector).load(URL,data,callback);
+load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+必需的 URL 参数规定您希望加载的 URL。
+可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。
+可选的 callback 参数是 load() 方法完成后所执行的函数名称。
+可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+•responseTxt - 包含调用成功时的结果内容
+•statusTXT - 包含调用的状态
+•xhr - 包含 XMLHttpRequest 对象
+实例
+	$("button").click(function(){
+	  $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+		if(statusTxt=="success")
+		  alert("外部内容加载成功!");
+		if(statusTxt=="error")
+		  alert("Error: "+xhr.status+": "+xhr.statusText);
+	  });
+	});
+
+
+$.get(URL,callback);
+$.post(URL,data,callback);
+必需的 URL 参数规定您希望请求的 URL。
+可选的 data 参数规定连同请求发送的数据。
+可选的 callback 参数是请求成功后所执行的函数名。
+实例
+	GET
+	$("button").click(function(){
+	  $.get("demo_test.php",function(data,status){
+		alert("数据: " + data + "\n状态: " + status);
+	  });
+	});
+	POST
+	$("button").click(function(){
+		$.post("/try/ajax/demo_test_post.php",
+		{
+			name:"菜鸟教程",
+			url:"http://www.runoob.com"
+		},
+			function(data,status){
+			alert("数据: \n" + data + "\n状态: " + status);
+		});
+	});
+
+jQuery noConflict() 方法
+noConflict() 方法会释放会 $ 标识符的控制，这样其他脚本就可以使用它了。当然，您仍然可以通过全名替代简写的方式来使用 jQuery,也可以创建自己的简写。noConflict() 可返回对 jQuery 的引用，您可以把它存入变量，以供稍后使用。如果你的 jQuery 代码块使用 $ 简写，并且您不愿意改变这个快捷方式，那么您可以把 $ 符号作为变量传递给 ready 方法。这样就可以在函数内使用 $ 符号了 - 而在函数外，依旧不得不使用 "jQuery"：
+
+jQuery 使用 JSONP
+	$.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function(data) {   
+		var html = '<ul>';
+		for(var i = 0; i < data.length; i++)
+		{
+			html += '<li>' + data[i] + '</li>';
+		}
+		html += '</ul>';
+		
+		$('#divCustomers').html(html); 
+	});
+
