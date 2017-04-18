@@ -16,6 +16,9 @@
 			<div id="ajax_div">
 			<button id="ajax_load">AJAX 加载</button>
 			</div>
+			<div id="storage">
+			
+			</div>
 		</div>
 	</body>
 	<script>
@@ -32,6 +35,12 @@
 			$("#ajax_load").click(function(){
 				$("#ajax_div").load("ajaxText.txt");
 			});
+			if(typeof(Storage)!="undefined"){		
+				localStorage.name="小明";
+				$("#storage").html(localStorage.name);
+			}else{
+				alert("不支持localStorage");
+			}
 		});
 	</script>
 	<style>
